@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.springboot.hwzl.dao.UserMapper">
+    <resultMap id="userResultMap" type="com.springboot.hwzl.entity.User">
+        <result column="UserId" property="userId"/>
+        <result column="UserName" property="userName"/>
+        <result column="Account" property="account"/>
+        <result column="Password" property="password"/>
+    </resultMap>
+    <select id="findUserById"  resultMap="userResultMap">
+        select * from sysuser where UserId=#{userId}
+    </select>
+
+    <!--<insert id="add" parameterType="com.springboot.hwzl.entity.User" useGeneratedKeys="true" keyProperty="UserId" keyColumn = "UserId">
+        insert into
+		sysuser(UserName,Account,Password)
+	values
+		(#{userName},#{account},#{password})
+    </insert>
+
+    <select id="userLogin" resultType="com.springboot.hwzl.entity.User">
+        select * from sysuser where Account=#{account} and Password=#{password}
+    </select>
+    
+    <select id="findUserList" resultType="com.springboot.hwzl.entity.User">
+        select * from sysuser
+    </select>
+
+    <update id="updateName">
+        update sysuser set UserName=#{userName} where UserId=#{userId}
+    </update>
+-->
+</mapper>
